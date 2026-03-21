@@ -390,6 +390,17 @@
             .comparison-table { font-size: 13px; }
         }
     </style>
+    <!-- Paddle Checkout -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>
+        Paddle.Initialize({ token: 'live_b279c3271095cf0ddc492c7ed52' });
+
+        function openCheckout() {
+            Paddle.Checkout.open({
+                items: [{ priceId: 'pri_01km9ac25ga72e0hz948r4zd09', quantity: 1 }]
+            });
+        }
+    </script>
 </head>
 <body>
 
@@ -416,7 +427,7 @@
             launch agents, and Homebrew packages. The deep clean other uninstallers miss.
         </p>
         <div class="cta-group" id="download">
-            <a href="#" class="btn btn-primary">
+            <a href="javascript:openCheckout()" class="btn btn-primary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download Free Trial
             </a>
@@ -561,7 +572,7 @@
                     <li>Homebrew integration</li>
                     <li>All features unlocked</li>
                 </ul>
-                <a href="#" class="btn btn-secondary">Download Trial</a>
+                <a href="javascript:openCheckout()" class="btn btn-secondary">Download Trial</a>
             </div>
             <div class="pricing-card featured">
                 <h3>Pro</h3>
@@ -572,7 +583,7 @@
                     <li>All future updates</li>
                     <li>No subscription</li>
                 </ul>
-                <a href="#" class="btn btn-primary">Buy Now</a>
+                <a href="javascript:openCheckout()" class="btn btn-primary">Buy Now</a>
             </div>
         </div>
     </div>
