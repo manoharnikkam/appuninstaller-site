@@ -195,6 +195,38 @@
             transition: color 0.2s;
         }
         .nav-links a:hover { color: var(--text); }
+        .btn-nav-cta {
+            padding: 8px 22px !important;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff !important;
+            background: #fff;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .btn-nav-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+        .btn-nav-cta::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .btn-nav-cta:hover::after { opacity: 1; }
+        .btn-nav-cta:hover { color: #fff !important; transform: translateY(-1px); }
 
         /* Hero */
         .hero {
@@ -1092,7 +1124,7 @@
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
-            <a href="#download" class="btn btn-primary" style="padding: 8px 20px; font-size: 14px;">Download Free</a>
+            <a href="#download" class="btn btn-nav-cta">Download Free</a>
         </div>
     </div>
 </nav>
