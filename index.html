@@ -230,6 +230,62 @@
         .screenshot-nav.prev { left: 12px; }
         .screenshot-nav.next { right: 12px; }
 
+        /* Why Mac */
+        .why-mac {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+        .why-mac h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .why-mac .section-sub {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 48px;
+            font-size: 18px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .why-mac-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .why-mac-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+        }
+        .why-mac-item .icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .why-mac-item h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .why-mac-item p {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .why-mac-grid { grid-template-columns: 1fr; }
+        }
+
         /* Features */
         .features {
             padding: 80px 0;
@@ -453,7 +509,7 @@
 
 <nav>
     <div class="container">
-        <div class="logo">App Uninstaller</div>
+        <div class="logo">App Uninstaller for Mac</div>
         <div class="nav-links">
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
@@ -516,6 +572,47 @@
             }
             setInterval(() => slide(1), 5000);
         </script>
+    </div>
+</section>
+
+<section class="why-mac">
+    <div class="container">
+        <h2>Built exclusively for Mac</h2>
+        <p class="section-sub">
+            macOS doesn't have a built-in uninstaller. When you drag an app to Trash, it leaves behind
+            preferences, caches, containers, and support files scattered across your system. Over time,
+            these leftovers pile up into gigabytes of wasted space.
+        </p>
+        <div class="why-mac-grid">
+            <div class="why-mac-item">
+                <div class="icon">🗑️</div>
+                <div>
+                    <h3>Trash doesn't clean up</h3>
+                    <p>macOS only removes the .app bundle. Preferences, caches, and support files stay behind forever.</p>
+                </div>
+            </div>
+            <div class="why-mac-item">
+                <div class="icon">📁</div>
+                <div>
+                    <h3>Files hide everywhere</h3>
+                    <p>Apps scatter data across ~/Library, /Library, containers, launch agents, and more — all invisible in Finder.</p>
+                </div>
+            </div>
+            <div class="why-mac-item">
+                <div class="icon">💾</div>
+                <div>
+                    <h3>Storage fills up fast</h3>
+                    <p>Leftover files from uninstalled apps can take up gigabytes, especially on smaller Mac SSDs.</p>
+                </div>
+            </div>
+            <div class="why-mac-item">
+                <div class="icon">🍎</div>
+                <div>
+                    <h3>Native macOS app</h3>
+                    <p>Built with SwiftUI, notarized by Apple. Designed for macOS 14+ with full dark mode and native performance.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
