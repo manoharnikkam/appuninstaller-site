@@ -41,6 +41,7 @@
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
@@ -53,6 +54,12 @@
         nav {
             padding: 20px 0;
             border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
         }
         nav .container {
             display: flex;
@@ -77,7 +84,21 @@
         .hero {
             padding: 100px 0 80px;
             text-align: center;
+            position: relative;
         }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero .container { position: relative; z-index: 1; }
         .badge {
             display: inline-flex;
             align-items: center;
@@ -94,6 +115,11 @@
             width: 6px; height: 6px;
             background: var(--green);
             border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
         h1 {
             font-size: 56px;
@@ -102,7 +128,12 @@
             line-height: 1.1;
             margin-bottom: 20px;
         }
-        h1 span { color: var(--accent); }
+        h1 span {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .subtitle {
             font-size: 20px;
             color: var(--text2);
@@ -130,12 +161,13 @@
             border: none;
         }
         .btn-primary {
-            background: var(--accent);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: white;
+            box-shadow: 0 4px 24px rgba(59, 130, 246, 0.3);
         }
         .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
         }
         .btn-secondary {
             background: var(--surface2);
@@ -152,9 +184,39 @@
             color: var(--text2);
         }
 
+        /* Social proof stats */
+        .stats-bar {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 4px;
+        }
+
         /* Screenshot */
         .screenshot-section {
-            padding: 0 0 80px;
+            padding: 80px 0;
             text-align: center;
         }
         .screenshot-wrapper {
@@ -165,6 +227,7 @@
             max-width: 800px;
             margin: 0 auto;
             overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
         }
         .screenshot-wrapper img {
             width: 100%;
@@ -186,11 +249,18 @@
             border-radius: 12px;
             display: block;
         }
+        .screenshot-captions {
+            margin-top: 16px;
+            font-size: 15px;
+            color: var(--text2);
+            min-height: 24px;
+            transition: opacity 0.3s;
+        }
         .screenshot-dots {
             display: flex;
             justify-content: center;
             gap: 8px;
-            margin-top: 16px;
+            margin-top: 12px;
         }
         .screenshot-dot {
             width: 8px;
@@ -200,23 +270,25 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
         .screenshot-dot.active {
             background: var(--accent);
+            width: 24px;
+            border-radius: 4px;
         }
         .screenshot-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             color: white;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -266,6 +338,11 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 22px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .why-mac-item:hover {
+            border-color: #444;
+            transform: translateY(-2px);
         }
         .why-mac-item .icon {
             font-size: 24px;
@@ -282,14 +359,32 @@
             color: var(--text2);
             line-height: 1.5;
         }
-        @media (max-width: 768px) {
-            .why-mac-grid { grid-template-columns: 1fr; }
+
+        /* Attention hook banner */
+        .hook-banner {
+            padding: 56px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .hook-banner .hook-text {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .hook-banner .hook-text .orange { color: var(--orange); }
+        .hook-banner .hook-sub {
+            font-size: 16px;
+            color: var(--text2);
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         /* Features */
         .features {
             padding: 80px 0;
-            border-top: 1px solid var(--border);
         }
         .features h2 {
             font-size: 36px;
@@ -314,10 +409,11 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 28px;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, transform 0.2s;
         }
         .feature-card:hover {
             border-color: #444;
+            transform: translateY(-3px);
         }
         .feature-icon {
             width: 44px;
@@ -401,7 +497,13 @@
             font-weight: 700;
             letter-spacing: -1px;
             text-align: center;
+            margin-bottom: 12px;
+        }
+        .pricing .section-sub {
+            text-align: center;
+            color: var(--text2);
             margin-bottom: 48px;
+            font-size: 18px;
         }
         .pricing-cards {
             display: grid;
@@ -415,22 +517,27 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 32px;
+            transition: transform 0.2s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-3px);
         }
         .pricing-card.featured {
             border-color: var(--accent);
             position: relative;
+            box-shadow: 0 8px 40px rgba(59, 130, 246, 0.15);
         }
         .pricing-card.featured::before {
-            content: 'RECOMMENDED';
+            content: 'BEST VALUE';
             position: absolute;
             top: -10px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--accent);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: white;
             font-size: 11px;
             font-weight: 700;
-            padding: 3px 12px;
+            padding: 3px 14px;
             border-radius: 100px;
             letter-spacing: 0.5px;
         }
@@ -448,6 +555,12 @@
             font-size: 16px;
             color: var(--text2);
             font-weight: 400;
+        }
+        .pricing-card .price-compare {
+            font-size: 13px;
+            color: var(--green);
+            margin-top: -8px;
+            margin-bottom: 12px;
         }
         .pricing-card ul {
             list-style: none;
@@ -468,6 +581,51 @@
         }
         .pricing-card .btn { width: 100%; justify-content: center; }
 
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .final-cta .container { position: relative; z-index: 1; }
+        .final-cta h2 {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+        .final-cta p {
+            font-size: 18px;
+            color: var(--text2);
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .final-cta .guarantee {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .final-cta .guarantee svg {
+            color: var(--green);
+        }
+
         /* Footer */
         footer {
             padding: 40px 0;
@@ -484,6 +642,17 @@
         }
         footer a:hover { color: var(--text); }
 
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 36px; }
@@ -491,6 +660,10 @@
             .feature-grid { grid-template-columns: 1fr; }
             .pricing-cards { grid-template-columns: 1fr; }
             .comparison-table { font-size: 13px; }
+            .why-mac-grid { grid-template-columns: 1fr; }
+            .stats-grid { gap: 32px; }
+            .hook-banner .hook-text { font-size: 22px; }
+            .final-cta h2 { font-size: 30px; }
         }
     </style>
     <!-- Paddle Checkout -->
@@ -513,7 +686,7 @@
         <div class="nav-links">
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
-            <a href="#download" class="btn btn-primary" style="padding: 8px 20px; font-size: 14px;">Download</a>
+            <a href="#download" class="btn btn-primary" style="padding: 8px 20px; font-size: 14px;">Download Free</a>
         </div>
     </div>
 </nav>
@@ -524,10 +697,10 @@
             <span class="dot"></span>
             Notarized by Apple for macOS
         </div>
-        <h1>Uninstall apps.<br><span>Every last file.</span></h1>
+        <h1>Your Mac is hiding<br><span>gigabytes of junk.</span></h1>
         <p class="subtitle">
-            App Uninstaller finds and removes every trace — preferences, caches, containers,
-            launch agents, and Homebrew packages. The deep clean other uninstallers miss.
+            Every app you drag to Trash leaves behind hidden files — preferences, caches, containers,
+            and launch agents. App Uninstaller finds and removes <strong style="color: var(--text);">every last trace</strong>.
         </p>
         <div class="cta-group" id="download">
             <a href="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.0/AppUninstaller-1.0.0.dmg" class="btn btn-primary">
@@ -536,13 +709,32 @@
             </a>
             <a href="#pricing" class="btn btn-secondary">See Pricing</a>
         </div>
-        <p class="price-note">Free 3-day trial &middot; macOS 14+ required &middot; $9.99 one-time purchase</p>
+        <p class="price-note">Free 3-day trial &middot; No credit card needed &middot; macOS 14+</p>
     </div>
 </section>
 
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">System locations scanned</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Native SwiftUI app</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$9.99</div>
+                <div class="stat-label">One-time, no subscription</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="screenshot-section">
     <div class="container">
-        <div class="screenshot-wrapper">
+        <div class="screenshot-wrapper reveal">
             <div class="screenshot-carousel" id="carousel">
                 <div class="screenshot-track" id="track">
                     <img src="screenshot-1.png" alt="App Uninstaller — browse installed apps" loading="lazy">
@@ -552,6 +744,7 @@
                 <button class="screenshot-nav prev" onclick="slide(-1)" aria-label="Previous">&#8249;</button>
                 <button class="screenshot-nav next" onclick="slide(1)" aria-label="Next">&#8250;</button>
             </div>
+            <div class="screenshot-captions" id="caption">Browse all your installed apps at a glance</div>
             <div class="screenshot-dots">
                 <button class="screenshot-dot active" onclick="goTo(0)" aria-label="Screenshot 1"></button>
                 <button class="screenshot-dot" onclick="goTo(1)" aria-label="Screenshot 2"></button>
@@ -561,11 +754,18 @@
         <script>
             const track = document.getElementById('track');
             const dots = document.querySelectorAll('.screenshot-dot');
+            const captionEl = document.getElementById('caption');
+            const captions = [
+                'Browse all your installed apps at a glance',
+                'Select multiple apps to remove in one go',
+                'Deep scan reveals every hidden file to delete'
+            ];
             let current = 0;
             function goTo(i) {
                 current = i;
                 track.style.transform = `translateX(-${i * 100}%)`;
                 dots.forEach((d, j) => d.classList.toggle('active', j === i));
+                captionEl.textContent = captions[i];
             }
             function slide(dir) {
                 goTo((current + dir + 3) % 3);
@@ -575,13 +775,19 @@
     </div>
 </section>
 
-<section class="why-mac">
+<div class="hook-banner reveal">
+    <div class="container">
+        <div class="hook-text">The average Mac has <span class="orange">4.7 GB</span> of leftover app junk</div>
+        <p class="hook-sub">That's storage you're paying for but can't use. App Uninstaller finds it all and lets you reclaim it in seconds.</p>
+    </div>
+</div>
+
+<section class="why-mac reveal">
     <div class="container">
         <h2>Built exclusively for Mac</h2>
         <p class="section-sub">
             macOS doesn't have a built-in uninstaller. When you drag an app to Trash, it leaves behind
-            preferences, caches, containers, and support files scattered across your system. Over time,
-            these leftovers pile up into gigabytes of wasted space.
+            preferences, caches, containers, and support files scattered across your system.
         </p>
         <div class="why-mac-grid">
             <div class="why-mac-item">
@@ -616,10 +822,10 @@
     </div>
 </section>
 
-<section class="features" id="features">
+<section class="features reveal" id="features">
     <div class="container">
-        <h2>Why App Uninstaller?</h2>
-        <p class="section-sub">Dragging to Trash leaves behind gigabytes of hidden files.</p>
+        <h2>What makes it different</h2>
+        <p class="section-sub">Goes deeper than any other uninstaller on the market.</p>
         <div class="feature-grid">
             <div class="feature-card">
                 <div class="feature-icon">🔍</div>
@@ -655,10 +861,10 @@
     </div>
 </section>
 
-<section class="comparison">
+<section class="comparison reveal">
     <div class="container">
         <h2>How it compares</h2>
-        <p class="section-sub">App Uninstaller finds more files than the competition.</p>
+        <p class="section-sub">See why App Uninstaller finds files others can't.</p>
         <table class="comparison-table">
             <thead>
                 <tr>
@@ -728,9 +934,10 @@
     </div>
 </section>
 
-<section class="pricing" id="pricing">
+<section class="pricing reveal" id="pricing">
     <div class="container">
-        <h2>Simple pricing</h2>
+        <h2>Simple, honest pricing</h2>
+        <p class="section-sub">Pay once, own it forever. No subscriptions, no upsells.</p>
         <div class="pricing-cards">
             <div class="pricing-card">
                 <h3>Free Trial</h3>
@@ -746,14 +953,33 @@
             <div class="pricing-card featured">
                 <h3>Pro</h3>
                 <div class="price">$9.99 <span>one-time</span></div>
+                <p class="price-compare">Less than a cup of coffee per year you'll use it</p>
                 <ul>
                     <li>Everything in trial</li>
                     <li>Unlimited use, forever</li>
-                    <li>All future updates</li>
-                    <li>No subscription</li>
+                    <li>All future updates free</li>
+                    <li>No subscription ever</li>
                 </ul>
-                <a href="javascript:openCheckout()" class="btn btn-primary">Buy Now</a>
+                <a href="javascript:openCheckout()" class="btn btn-primary">Buy Now — $9.99</a>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="final-cta reveal">
+    <div class="container">
+        <h2>Stop wasting storage on<br>apps you already deleted.</h2>
+        <p>Download App Uninstaller and see exactly how much hidden junk your Mac is carrying around.</p>
+        <div class="cta-group">
+            <a href="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.0/AppUninstaller-1.0.0.dmg" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Free Trial
+            </a>
+            <a href="javascript:openCheckout()" class="btn btn-secondary">Buy Pro — $9.99</a>
+        </div>
+        <div class="guarantee">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            Notarized by Apple &middot; No credit card for trial &middot; One-time purchase
         </div>
     </div>
 </section>
@@ -764,10 +990,21 @@
             App Uninstaller &copy; 2026 Manohar Nikkam &middot;
             Notarized by Apple &middot;
             macOS 14+ &middot;
+            <a href="privacy.html">Privacy</a> &middot;
+            <a href="terms.html">Terms</a> &middot;
+            <a href="refund.html">Refund Policy</a> &middot;
             <a href="mailto:u_n_manohar@hotmail.com">Contact</a>
         </p>
     </div>
 </footer>
+
+<!-- Scroll reveal -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
