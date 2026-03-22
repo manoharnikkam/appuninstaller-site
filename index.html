@@ -1128,8 +1128,9 @@
             token: 'live_b279c3271095cf0ddc492c7ed52',
             eventCallback: function(event) {
                 if (event.name === 'checkout.completed') {
+                    var txnId = event.data && event.data.transaction_id ? event.data.transaction_id : '';
+                    showSuccessOverlay(txnId);
                     window.location.href = DMG_URL;
-                    showDownloadBanner();
                 }
             }
         });
@@ -1140,15 +1141,34 @@
             });
         }
 
-        function showDownloadBanner() {
-            var banner = document.createElement('div');
-            banner.id = 'download-banner';
-            banner.innerHTML = '<div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">'
-                + '<span>&#10003; Payment successful! Your download should start automatically.</span>'
-                + '<a href="' + DMG_URL + '" style="color:#3b82f6;text-decoration:underline;">Click here if it didn\u2019t start</a>'
-                + '</div>';
-            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:#1a2a1a;color:#4ade80;padding:14px 24px;font-size:15px;border-bottom:1px solid #2d4a2d;';
-            document.body.prepend(banner);
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(function() {
+                btn.textContent = 'Copied!';
+                setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+            });
+        }
+
+        function showSuccessOverlay(txnId) {
+            var overlay = document.createElement('div');
+            overlay.id = 'success-overlay';
+            overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;';
+            overlay.innerHTML = '<div style="background:#111827;border:1px solid #374151;border-radius:16px;padding:40px;max-width:520px;width:90%;text-align:center;">'
+                + '<div style="width:64px;height:64px;border-radius:50%;background:#065f4620;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;">'
+                + '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>'
+                + '<h2 style="color:#fff;font-size:24px;margin:0 0 8px;">Payment Successful!</h2>'
+                + '<p style="color:#9ca3af;font-size:15px;margin:0 0 24px;">Your download should start automatically.</p>'
+                + (txnId ? '<div style="background:#1f2937;border:1px solid #374151;border-radius:10px;padding:16px;margin:0 0 16px;text-align:left;">'
+                    + '<div style="color:#9ca3af;font-size:12px;margin:0 0 6px;">Your Transaction ID (needed to activate)</div>'
+                    + '<div style="display:flex;align-items:center;gap:8px;">'
+                    + '<code style="color:#f59e0b;font-size:15px;flex:1;word-break:break-all;">' + txnId + '</code>'
+                    + '<button onclick="copyToClipboard(\'' + txnId + '\', this)" style="background:#374151;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px;white-space:nowrap;">Copy</button>'
+                    + '</div></div>' : '')
+                + '<p style="color:#6b7280;font-size:13px;margin:0 0 20px;">Check your email for the receipt. Use the transaction ID and your email to activate the app.</p>'
+                + '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">'
+                + '<a href="' + DMG_URL + '" style="background:#3b82f6;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;">Download Again</a>'
+                + '<button onclick="document.getElementById(\'success-overlay\').remove()" style="background:#1f2937;color:#fff;border:1px solid #374151;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px;">Close</button>'
+                + '</div></div>';
+            document.body.appendChild(overlay);
         }
     </script>
 </head>
