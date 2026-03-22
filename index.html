@@ -67,9 +67,17 @@
             align-items: center;
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 18px;
             font-weight: 700;
             letter-spacing: -0.3px;
+        }
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
         }
         .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a {
@@ -99,6 +107,13 @@
             z-index: 0;
         }
         .hero .container { position: relative; z-index: 1; }
+        .hero-icon {
+            width: 88px;
+            height: 88px;
+            border-radius: 22px;
+            margin: 0 auto 28px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
         .badge {
             display: inline-flex;
             align-items: center;
@@ -302,6 +317,97 @@
         .screenshot-nav.prev { left: 12px; }
         .screenshot-nav.next { right: 12px; }
 
+        /* Before/After */
+        .before-after {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+        .before-after h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .before-after .section-sub {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 48px;
+            font-size: 18px;
+        }
+        .ba-columns {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0;
+            max-width: 760px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+        .ba-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+        .ba-card.before { border-color: rgba(239, 68, 68, 0.3); }
+        .ba-card.after { border-color: rgba(34, 197, 94, 0.3); }
+        .ba-card-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .ba-card.before .ba-card-label { color: #ef4444; }
+        .ba-card.after .ba-card-label { color: var(--green); }
+        .ba-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .ba-file-list {
+            list-style: none;
+        }
+        .ba-file-list li {
+            font-size: 13px;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            color: var(--text2);
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ba-file-list li .file-icon { font-size: 14px; opacity: 0.6; }
+        .ba-file-list .size {
+            margin-left: auto;
+            color: #666;
+            font-size: 12px;
+        }
+        .ba-card.before .ba-total {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            color: #ef4444;
+        }
+        .ba-card.after .ba-total {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--green);
+        }
+        .ba-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            font-size: 28px;
+            color: var(--accent);
+        }
+
         /* Why Mac */
         .why-mac {
             padding: 80px 0;
@@ -437,6 +543,57 @@
             line-height: 1.5;
         }
 
+        /* Works with */
+        .works-with {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .works-with h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+        .works-with .section-sub {
+            color: var(--text2);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .compat-grid {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .compat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px 28px;
+            min-width: 140px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .compat-item:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+        .compat-icon {
+            font-size: 36px;
+            line-height: 1;
+        }
+        .compat-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text2);
+        }
+
         /* Comparison */
         .comparison {
             padding: 80px 0;
@@ -486,6 +643,137 @@
         }
         .check { color: var(--green); }
         .cross { color: #555; }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+        .testimonials h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .testimonials .section-sub {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 48px;
+            font-size: 18px;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .testimonial-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .testimonial-card:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-size: 13px;
+            color: var(--text2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .testimonial-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--surface2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+        .faq h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .faq .section-sub {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 48px;
+            font-size: 18px;
+        }
+        .faq-list {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-family: inherit;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-chevron {
+            font-size: 18px;
+            color: var(--text2);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+        }
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--text2);
+            line-height: 1.7;
+            padding-bottom: 20px;
+        }
 
         /* Pricing */
         .pricing {
@@ -575,7 +863,7 @@
             gap: 8px;
         }
         .pricing-card li::before {
-            content: '✓';
+            content: '\2713';
             color: var(--green);
             font-weight: 700;
         }
@@ -664,6 +952,11 @@
             .stats-grid { gap: 32px; }
             .hook-banner .hook-text { font-size: 22px; }
             .final-cta h2 { font-size: 30px; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .ba-columns { grid-template-columns: 1fr; gap: 16px; }
+            .ba-arrow { transform: rotate(90deg); padding: 8px 0; }
+            .compat-grid { gap: 16px; }
+            .compat-item { min-width: 120px; padding: 18px 20px; }
         }
     </style>
     <!-- Paddle Checkout -->
@@ -682,10 +975,14 @@
 
 <nav>
     <div class="container">
-        <div class="logo">App Uninstaller for Mac</div>
+        <div class="logo">
+            <img src="app-icon.png" alt="App Uninstaller icon">
+            App Uninstaller
+        </div>
         <div class="nav-links">
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
             <a href="#download" class="btn btn-primary" style="padding: 8px 20px; font-size: 14px;">Download Free</a>
         </div>
     </div>
@@ -693,6 +990,7 @@
 
 <section class="hero">
     <div class="container">
+        <img src="app-icon.png" alt="App Uninstaller" class="hero-icon">
         <div class="badge">
             <span class="dot"></span>
             Notarized by Apple for macOS
@@ -782,6 +1080,42 @@
     </div>
 </div>
 
+<section class="before-after reveal">
+    <div class="container">
+        <h2>See the difference</h2>
+        <p class="section-sub">Here's what happens when you uninstall Slack by dragging it to Trash vs. using App Uninstaller.</p>
+        <div class="ba-columns">
+            <div class="ba-card before">
+                <div class="ba-card-label">Drag to Trash</div>
+                <h3>12 files left behind</h3>
+                <ul class="ba-file-list">
+                    <li><span class="file-icon">📄</span> com.tinyspeck.slackmacgap.plist <span class="size">4 KB</span></li>
+                    <li><span class="file-icon">📁</span> Application Support/Slack/ <span class="size">89 MB</span></li>
+                    <li><span class="file-icon">📁</span> Caches/com.tinyspeck.slackmacgap/ <span class="size">214 MB</span></li>
+                    <li><span class="file-icon">📁</span> Saved Application State/ <span class="size">1.2 MB</span></li>
+                    <li><span class="file-icon">📄</span> com.tinyspeck.slackmacgap.helper <span class="size">18 MB</span></li>
+                    <li><span class="file-icon">📄</span> ...and 7 more files</li>
+                </ul>
+                <div class="ba-total">322 MB of junk remains</div>
+            </div>
+            <div class="ba-arrow">&#10132;</div>
+            <div class="ba-card after">
+                <div class="ba-card-label">App Uninstaller</div>
+                <h3>0 files left behind</h3>
+                <ul class="ba-file-list">
+                    <li><span class="file-icon">✅</span> .app bundle removed</li>
+                    <li><span class="file-icon">✅</span> Preferences cleaned</li>
+                    <li><span class="file-icon">✅</span> Caches deleted</li>
+                    <li><span class="file-icon">✅</span> Containers removed</li>
+                    <li><span class="file-icon">✅</span> Launch agents cleared</li>
+                    <li><span class="file-icon">✅</span> Helper tools removed</li>
+                </ul>
+                <div class="ba-total">100% clean uninstall</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="why-mac reveal">
     <div class="container">
         <h2>Built exclusively for Mac</h2>
@@ -861,6 +1195,31 @@
     </div>
 </section>
 
+<section class="works-with reveal">
+    <div class="container">
+        <h2>Works with everything</h2>
+        <p class="section-sub">No matter how you installed it, App Uninstaller handles it.</p>
+        <div class="compat-grid">
+            <div class="compat-item">
+                <div class="compat-icon">🍎</div>
+                <div class="compat-label">Mac App Store</div>
+            </div>
+            <div class="compat-item">
+                <div class="compat-icon">🍺</div>
+                <div class="compat-label">Homebrew</div>
+            </div>
+            <div class="compat-item">
+                <div class="compat-icon">📦</div>
+                <div class="compat-label">PKG Installers</div>
+            </div>
+            <div class="compat-item">
+                <div class="compat-icon">💿</div>
+                <div class="compat-label">DMG Downloads</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="comparison reveal">
     <div class="container">
         <h2>How it compares</h2>
@@ -931,6 +1290,102 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</section>
+
+<section class="testimonials reveal">
+    <div class="container">
+        <h2>What Mac users are saying</h2>
+        <p class="section-sub">Join hundreds of Mac users who finally got their storage back.</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I had no idea how much junk was hiding on my Mac. App Uninstaller found 3.8 GB of leftover files from apps I deleted months ago. Worth every penny."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">R</div>
+                    <span>Raj K. &middot; Software Developer</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Finally a Mac uninstaller that actually handles Homebrew apps properly. I switched from AppCleaner and the difference is night and day."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">S</div>
+                    <span>Sarah M. &middot; Designer</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Beautiful native app, feels like it was made by Apple. The deep scan found launch agents and helper tools that no other uninstaller detected."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">J</div>
+                    <span>James L. &middot; IT Administrator</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq reveal" id="faq">
+    <div class="container">
+        <h2>Frequently asked questions</h2>
+        <p class="section-sub">Everything you need to know before downloading.</p>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Is it safe? Will it delete something important?
+                    <span class="faq-chevron">&#9662;</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. App Uninstaller has built-in system protection that prevents removal of critical macOS system apps, Apple apps, and MDM-managed apps. It only targets files belonging to the specific app you choose to uninstall, and always shows you exactly what will be deleted before you confirm.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Why should I pay when AppCleaner is free?
+                    <span class="faq-chevron">&#9662;</span>
+                </button>
+                <div class="faq-answer">
+                    <p>AppCleaner misses launch agents, daemons, privileged helper tools, stale bundle IDs, and has no Homebrew integration. App Uninstaller scans 15+ system locations and catches files that free tools leave behind. The comparison table above shows the full difference.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Does it work with Homebrew apps?
+                    <span class="faq-chevron">&#9662;</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. App Uninstaller detects Homebrew casks and formulae, runs <code>brew uninstall</code> automatically, and then deep cleans any leftover files. It's the only Mac uninstaller with full Homebrew integration.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Is it a subscription?
+                    <span class="faq-chevron">&#9662;</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. App Uninstaller is a one-time purchase of $9.99. You get all future updates included, forever. No subscription, no upsells, no recurring charges.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    What macOS versions are supported?
+                    <span class="faq-chevron">&#9662;</span>
+                </button>
+                <div class="faq-answer">
+                    <p>App Uninstaller requires macOS 14 (Sonoma) or later. It's built with SwiftUI and is notarized by Apple, so it runs natively on both Intel and Apple Silicon Macs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Can I try it before buying?
+                    <span class="faq-chevron">&#9662;</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. The free trial gives you full access to every feature for 3 days — no credit card required. Download it, scan your Mac, and see how much hidden junk you have before deciding.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
