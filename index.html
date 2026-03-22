@@ -1251,7 +1251,7 @@
                 captionEl.textContent = captions[i];
             }
             function slide(dir) {
-                goTo((current + dir + 3) % 3);
+                goTo((current + dir + captions.length) % captions.length);
             }
             setInterval(() => slide(1), 5000);
         </script>
