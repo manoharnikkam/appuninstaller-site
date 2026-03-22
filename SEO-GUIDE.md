@@ -49,6 +49,16 @@ curl -X POST "https://api.indexnow.org/indexnow" \
 
 ---
 
+## Google Indexing
+
+Google doesn't support IndexNow and deprecated sitemap pings in 2023. Your options:
+
+1. **Sitemap auto-crawl** — Google reads your sitemap.xml automatically. Keep `<lastmod>` dates updated so Google knows when to re-crawl.
+2. **Request Indexing (manual)** — Go to Google Search Console → URL Inspection → paste URL → click "Request Indexing". Limited to a few per day.
+3. **Wait** — Google typically picks up changes within a few days for active sites.
+
+---
+
 ## Sitemap
 
 **File:** `sitemap.xml` in the site root
@@ -75,8 +85,9 @@ Validate at: https://search.google.com/test/rich-results
 ## Checklist After Major Site Updates
 
 1. Update `<lastmod>` in `sitemap.xml`
-2. Ping IndexNow (see command above)
-3. Check Google Search Console for crawl errors
+2. Ping IndexNow for Bing/Yandex (see command above)
+3. Optionally "Request Indexing" in Google Search Console for key pages
+4. Check Google Search Console for crawl errors
 4. Validate structured data at rich results test
 5. Test social sharing preview at https://www.opengraph.xyz/
 
