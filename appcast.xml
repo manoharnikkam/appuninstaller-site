@@ -24,8 +24,8 @@
             <enclosure
                 url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.0/AppUninstaller-1.0.0.dmg"
                 type="application/octet-stream"
-                sparkle:edSignature="0itvrvosETq7iXrPSyYVL+myf3Ws1jshkqiiHy9wEbQrMXvuuqet+VzD5mEQ4hrj7fMkJ7gQe+XcIdGZyKl3AQ=="
-                length="3084342"
+                sparkle:edSignature="nKOqCmnnNBP5VYeT8NJGyz8wqvkjkLxp5Jp+2lhhEqJv6qGAGw0I9TRBp7/3doqphrFnNy9vljiRQ5v9JZa2Cg=="
+                length="3087189"
             />
         </item>
     </channel>
