@@ -2,7 +2,7 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
     <channel>
         <title>App Uninstaller Updates</title>
-        <link>https://appuninstaller.store/appcast.xml</link>
+        <link>https://manoharnikkam.github.io/appuninstaller-site/appcast.xml</link>
         <language>en</language>
         <item>
             <title>Version 1.0.0</title>
@@ -24,8 +24,8 @@
             <enclosure
                 url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.0/AppUninstaller-1.0.0.dmg"
                 type="application/octet-stream"
-                sparkle:edSignature="1o2VpGjcmneKVLsTHYkQ9XHWzokM5F5vEndPVX2BOytHBuko2AbmmW0as+/tzFybP5RkraUjxldldFmqrcWeDQ=="
-                length="3123902"
+                sparkle:edSignature="691tasYnyRN+gA+sjiyPPxyxstcXWHau9Cfw8paxQayr0ifOZfOxjr1j6wbQ3Orxl5F1wVNk36dsKw0KTNlqCQ=="
+                length="3124004"
             />
         </item>
     </channel>
