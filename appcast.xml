@@ -5,10 +5,10 @@
         <link>https://manoharnikkam.github.io/appuninstaller-site/appcast.xml</link>
         <language>en</language>
         <item>
-            <title>Version 1.0.1</title>
+            <title>Version 1.0.1.0</title>
             <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
-            <sparkle:version>1.0.1</sparkle:version>
-            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:version>1.0.1.0</sparkle:version>
+            <sparkle:shortVersionString>1.0.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
                 <h2>What's New</h2>
@@ -22,10 +22,10 @@
                 </ul>
             ]]></description>
             <enclosure
-                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.1/AppUninstaller-1.0.1.dmg"
+                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.1.0/AppUninstaller-1.0.1.0.dmg"
                 type="application/octet-stream"
-                sparkle:edSignature="d5EtzoKz2GDjKr1hBLhlNxi0lr41QXLWNc7Xr7mx17MmqqQYTbT+NRukIIDWtmpRR4fZMR6wtF0qTC3CN8yFDw=="
-                length="3195571"
+                sparkle:edSignature="nxZE0mD2ootUwSPKihNOQT8q4FvozsQg+z7/8jXZQm4ycpacHuanTe2jS4aIeycqFzmIF7snqW+8HIegtbiyAA=="
+                length="3194499"
             />
         </item>
         <item>
