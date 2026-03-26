@@ -5,6 +5,30 @@
         <link>https://manoharnikkam.github.io/appuninstaller-site/appcast.xml</link>
         <language>en</language>
         <item>
+            <title>Version 1.0.1</title>
+            <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>1.0.1</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>What's New</h2>
+                <ul>
+                    <li>Email verification for secure license activation</li>
+                    <li>Multi-seat license support with seat management</li>
+                    <li>License transfer between machines</li>
+                    <li>Email-only activation with Paddle lookup</li>
+                    <li>Buy License option in activation sheet</li>
+                    <li>Liquid Glass UI for macOS 26 Tahoe</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.1/AppUninstaller-1.0.1.dmg"
+                type="application/octet-stream"
+                sparkle:edSignature="d5EtzoKz2GDjKr1hBLhlNxi0lr41QXLWNc7Xr7mx17MmqqQYTbT+NRukIIDWtmpRR4fZMR6wtF0qTC3CN8yFDw=="
+                length="3195571"
+            />
+        </item>
+        <item>
             <title>Version 1.0.0</title>
             <pubDate>Fri, 21 Mar 2026 00:00:00 +0000</pubDate>
             <sparkle:version>1.0.0</sparkle:version>
