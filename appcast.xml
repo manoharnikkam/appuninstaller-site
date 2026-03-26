@@ -5,10 +5,10 @@
         <link>https://manoharnikkam.github.io/appuninstaller-site/appcast.xml</link>
         <language>en</language>
         <item>
-            <title>Version 1.0.1.0</title>
+            <title>Version 1.0.2.0</title>
             <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
-            <sparkle:version>1.0.1.0</sparkle:version>
-            <sparkle:shortVersionString>1.0.1.0</sparkle:shortVersionString>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
                 <h2>What's New</h2>
@@ -22,16 +22,16 @@
                 </ul>
             ]]></description>
             <enclosure
-                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.1.0/AppUninstaller-1.0.1.0.dmg"
+                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.2.0/AppUninstaller-1.0.2.0.dmg"
                 type="application/octet-stream"
-                sparkle:edSignature="nxZE0mD2ootUwSPKihNOQT8q4FvozsQg+z7/8jXZQm4ycpacHuanTe2jS4aIeycqFzmIF7snqW+8HIegtbiyAA=="
-                length="3194499"
+                sparkle:edSignature="7bfAgLOwgtBhpOJiJ4IlW7YW88rZuevE6iNv94NGczN1teS74ABudEzwSfF5d4COEgM0kXXviJC69NaaUYnACA=="
+                length="3195443"
             />
         </item>
         <item>
             <title>Version 1.0.0</title>
             <pubDate>Fri, 21 Mar 2026 00:00:00 +0000</pubDate>
-            <sparkle:version>1.0.0</sparkle:version>
+            <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
