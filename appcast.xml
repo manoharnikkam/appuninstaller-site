@@ -5,6 +5,27 @@
         <link>https://manoharnikkam.github.io/appuninstaller-site/appcast.xml</link>
         <language>en</language>
         <item>
+            <title>Version 1.0.3.0</title>
+            <pubDate>Fri, 28 Mar 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.3.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>What's New</h2>
+                <ul>
+                    <li>First-launch activation prompt for users who purchased before downloading</li>
+                    <li>Improved activation flow and error messages</li>
+                    <li>Bug fixes and stability improvements</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.3.0/AppUninstaller-1.0.3.0.dmg"
+                type="application/octet-stream"
+                sparkle:edSignature="Yk4DqAvPU1qToVYkyP+eodlO++BzeQWAH9GLJHZYhY7cEscIZVtLBy8ADzTZ51wn+j+hpFnCp1CBjSUrp587BA=="
+                length="3194884"
+            />
+        </item>
+        <item>
             <title>Version 1.0.2.0</title>
             <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
             <sparkle:version>2</sparkle:version>
