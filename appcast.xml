@@ -5,6 +5,25 @@
         <link>https://manoharnikkam.github.io/appuninstaller-site/appcast.xml</link>
         <language>en</language>
         <item>
+            <title>Version 1.0.8.0</title>
+            <pubDate>Wed, 02 Apr 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>8</sparkle:version>
+            <sparkle:shortVersionString>1.0.8.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>What's New</h2>
+                <ul>
+                    <li>Bug fixes and stability improvements</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/manoharnikkam/appuninstaller-site/releases/download/v1.0.8.0/AppUninstaller-1.0.8.0.dmg"
+                type="application/octet-stream"
+                sparkle:edSignature="CPGZ6i7Q06JZJUQ8JhOpt1rr+cw2Py07TFHJDeLHYhxtfYn6iKyq3IV2cJCKS1gDMZVCbzIgBxwpBl0fENa2AQ=="
+                length="3215695"
+            />
+        </item>
+        <item>
             <title>Version 1.0.6.0</title>
             <pubDate>Fri, 28 Mar 2026 00:00:00 +0000</pubDate>
             <sparkle:version>6</sparkle:version>
